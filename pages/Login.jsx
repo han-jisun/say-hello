@@ -72,9 +72,15 @@ function Login({navigation}){
                     <View style={styles.mgVtAuto}>
                         <CustomBtn
                             title={'시작하기'}
+                            background = {'#2196F3'}
+                            border={'#2196F3'}
+                            fontColor={'#FFFFFF'}
                             onPress={() => navigation.push('Main')}/>
                         <CustomBtn
                             title={'등록하기'}
+                            background = {'#FFFFFF'}
+                            border={'#2196F3'}
+                            fontColor={'#2196F3'}
                             onPress={() => navigation.push('Join')}/>
                  
                         {/* <Button title="시작하기" onPress={() => navigation.push('Join')}/> */}
