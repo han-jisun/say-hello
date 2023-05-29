@@ -5,9 +5,12 @@ import MainImg from '../assets/images/main.png'
 import { inputStyles ,btnStyles } from '../globalStyle'
 import CustomBtn from '../components/CustomButton'
 
+import styled from 'styled-components/native'
+
 const styles = StyleSheet.create({
     common : {
-        backgroundColor : '#FFFFFF'
+        backgroundColor : '#FFFFFF',
+        flex : 1
     },
     title : {
         fontSize : 24,
@@ -33,6 +36,7 @@ const styles = StyleSheet.create({
         width : 250,
         height: 250,
         margin : 'auto',
+        alignItems : 'center',
     },
     logo: {
       width: 66,
@@ -41,19 +45,32 @@ const styles = StyleSheet.create({
     mgVtAuto : {
        marginTop : 'auto',
        marginBottom : 'auto',
+    },
+    container:{
+        flex:1,
+        padding : 50,
+        alignItems :'center',
+        justifyContent :'center',
     }
   });
+
+
 
 function Login({navigation}){
     const [text, onChangeText] = useState('');
     const [number, onChangeNumber] = useState('');
   
     return(
-        <SafeAreaView>
+        <SafeAreaView style={{ flex: 1 }}>
             <View style={styles.common}>
-                <View style={styles.imgArea}>
-                    <Image style={styles.mainImg} source={MainImg}/>
+                <View style={styles.mgVtAuto}>
+                    <Text style={{fontWeight:'bold', fontSize:20, textAlign:'center', marginTop:170}}>전화해줘</Text>
+                    <View style={styles.imgArea}>
+                       <Image style={styles.mainImg}  marginTop={10}  margin={80} source={MainImg}/>
+                    </View>
                 </View>
+            
+                
                 <View style={styles.inputArea}>
                     <View style={styles.mgVtAuto}>
                         <View style={inputStyles.wrap}> 
@@ -83,7 +100,6 @@ function Login({navigation}){
                             fontColor={'#2196F3'}
                             onPress={() => navigation.push('Join')}/>
                  
-                        {/* <Button title="시작하기" onPress={() => navigation.push('Join')}/> */}
                     </View>
                 </View>
                 

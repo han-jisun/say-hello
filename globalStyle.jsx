@@ -32,3 +32,4 @@ export const btnStyles = StyleSheet.create({
     },
     bdBtn :{},
 });
+

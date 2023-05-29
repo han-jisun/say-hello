@@ -4,7 +4,7 @@ import { useState,useEffect } from 'react'
 import { NavigationContainer, useNavigation  } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as Font from 'expo-font';
-import { AntDesign } from '@expo/vector-icons'; 
+import { AntDesign,MaterialCommunityIcons } from '@expo/vector-icons'; 
 
 import Login from './pages/Login'
 import Join from './pages/Join'
@@ -30,7 +30,18 @@ export default function App() {
         />
         <Stack.Screen name="Main" component={Main} options={{ title: '전화걸기' ,headerLeft: () => (
           <BackButton />
+        ), headerRight: () => (
+          <ListButton />
         ), headerTitleAlign: 'center'}} />
+        <Stack.Screen name="List" component={List} options={{ title: '연락처 관리' ,headerLeft: () => (
+          <BackButton />
+        ), headerRight: () => (
+          <AddButton />
+        ), headerTitleAlign: 'center'}} />
+                <Stack.Screen name="Add" component={Add} options={{ title: '연락처 등록' ,headerLeft: () => (
+          <BackButton />
+        ), headerTitleAlign: 'center'}} />
+        
       </Stack.Navigator>
 
     </NavigationContainer>
@@ -53,6 +64,32 @@ function BackButton() {
     />
   );
 }
+
+//리스트 이동 버튼
+function ListButton() {
+  const navigation = useNavigation();
+
+  const handleGoList = () => {
+    navigation.push('List')
+    // navigation.goBack();
+  };
+  return(
+    <MaterialCommunityIcons name="format-list-bulleted-square" size={24} color="black" onPress={handleGoList}/>
+  );
+}
+
+//등록 버튼
+function AddButton() {
+  const navigation = useNavigation();
+
+  const handleGoAdd = () => {
+    navigation.push('Add')
+  };
+  return(
+    <AntDesign name="plus" size={24} color="black" onPress={handleGoAdd} />
+  );
+}
+
 
 const styles = StyleSheet.create({
   container: {
